@@ -6,20 +6,42 @@ import { useState } from 'react';
 import Image from 'next/image';
 import hero from '../public/images/hero.jpg';
 import { createProfile } from '../lensapi/profile/profile';
+import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router'
+import { Renderable, ValueFunction, Toast } from 'react-hot-toast/dist/core/types';
 
 const Home: NextPage = () => {
-    const [response, setResponse] = useState('');
+    const [active, setActive] = useState(true);
+    const router = useRouter();
+    const toastSuccess = (message: Renderable | ValueFunction<Renderable, Toast>) => toast.success(message, {
+      ariaProps: {
+        role: 'status',
+        'aria-live': 'polite',
+      },
+    });
 
+    const toastFail = (message: Renderable | ValueFunction<Renderable, Toast>) => toast.success(message, {
+      ariaProps: {
+        role: 'status',
+        'aria-live': 'polite',
+      },
+    });
+
+  
   const handleConnect = async () => {
+      setActive(false);
       let answer = await login()
-      answer.data?.authenticate?.accessToken
-        ? setResponse('Successfully logged in!')
-        : setResponse('Something went wrong. Refresh!')
+        .then(()=> {
+          toastSuccess('Successfully logged in!')
+          router.push('/signup');
+        })
+        .catch(()=> {
+          toastFail('Something went wrong. Refresh!');
+        })
+        setActive(true);
   }
-  const createProfileAcc = async () => {
-    await createProfile("mogwai");
-  }
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -35,7 +57,20 @@ const Home: NextPage = () => {
         <section className={styles.right}>
           <h1 className={styles.h1}>Get Uncaged</h1>
           <h2 className={styles.h2}>A social network that doesn&apos;t box you in. It&apos;s your life!</h2>
-          <button className={styles.button} onClick={handleConnect}>connect wallet</button>
+          <button className={active? styles.button : styles.inactivebutton} disabled={!active} onClick={handleConnect}>connect wallet</button>
+          <Toaster 
+            containerClassName={styles.toaster}
+            toastOptions={{
+              duration: 50000000,
+              success: {
+                duration: 3000,
+                theme: {
+                  primary: 'green',
+                  secondary: 'black',
+                },
+              },
+            }}
+          />
         </section>
         </div>
       </main>

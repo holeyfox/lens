@@ -24,7 +24,9 @@ const query = gql`mutation CreateProfile($request: CreateProfileRequest!) {
               followModule: null
               }
         }
-   }).catch(error => console.error(error));
- 
-   console.log('sigh', response);
+   }
+   
+   ).catch(error => console.error(error));
+
+   return response;
  }
