@@ -6,12 +6,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import hero from '../public/images/hero.jpg';
 import { createProfile } from '../lensapi/profile/profile';
-import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
     const [response, setResponse] = useState('');
 
-  const handleConnect = async () => {
+  const doStuff = async () => {
       let answer = await login()
       answer.data?.authenticate?.accessToken
         ? setResponse('Successfully logged in!')
@@ -35,7 +34,7 @@ const Home: NextPage = () => {
         <section className={styles.right}>
           <h1 className={styles.h1}>Get Uncaged</h1>
           <h2 className={styles.h2}>A social network that doesn&apos;t box you in. It&apos;s your life!</h2>
-          <button className={styles.button} onClick={handleConnect}>connect wallet</button>
+          <button className={styles.button} onClick={doStuff}>connect wallet</button>
         </section>
         </div>
       </main>

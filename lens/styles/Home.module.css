@@ -1,15 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Syncopate:wght@700&display=swap');
+
 .container {
-  padding: 0 2rem;
+  background: #000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
   flex: 1;
+}
+
+.home {
+  background: red;
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+
+.h1 {
+  font-family: 'Syncopate', sans-serif;
+  line-height: 0.1;
+}
+
+.h2 {
+  font-size: 1em;
+}
+
+.right {
+  width: 50%;
+  background: white;
+  padding: 100px 40px;
+  font-size: 2.5em;
+}
+
+.left {
+  background: green;
+  width: 50%;
+  position: relative;
 }
 
 .footer {
@@ -28,6 +54,7 @@
   flex-grow: 1;
 }
 
+
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -40,20 +67,24 @@
 }
 
 .button {
-  border: 1.5px solid black;
-  border-radius: 10px;
+  border: none;
+  border-radius: 30px;
   outline: 0;
-  background: peachpuff;
+  background: black;
   font-size: inherit;
-  color: inherit;
-  padding: 10px 15px;
+  color: #ABFE2C;
+  padding: 10px 30px;
   font-family: inherit;
+  font-size: 30px;
   cursor: pointer;
   transition: flip 0.5s;
+  margin: 0 5px;
 }
 
 .button:hover {
-  scale: 1.1;
+  scale: 1.03;
+  background: #ABFE2C;
+  color: black;
 }
 
 @keyframes flip {

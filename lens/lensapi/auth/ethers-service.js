@@ -13,7 +13,6 @@ if (typeof window !== 'undefined') {
     }
 
     signText = (text) => {
-        console.log(ethersProvider.getSigner(), 'ethers')
         const signer = ethersProvider.getSigner();
         return signer.signMessage(text);
     }
