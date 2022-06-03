@@ -31,7 +31,7 @@ const SignUpForm = () => {
         let response  = await createProfile(handle);
 
         if (response.data.createProfile.reason === profileStatus.handletaken) {
-            toastFail(`"${handle}" is taken. Try another one.`);
+            toastFail(`"${handle}" is taken. Try another handle.`);
         } else {
             router.push('/profile');
         }
@@ -40,7 +40,7 @@ const SignUpForm = () => {
       <form className={styles.form}>
         <input className={styles.input} type="text" onChange={handleChange} name="handle" value={handle} placeholder="Choose a handle"/>
         {/* <input className={styles.input} type="file" name="avatar" placeholder="Choose a handle"/> */}
-        <br/><br/>
+        <br/>
         <button onClick={submitProfile} className={styles.button}>create profile</button>
         <Toaster />
       </form>
