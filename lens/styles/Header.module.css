@@ -1,0 +1,30 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: black;
+    height: 70px;
+}
+.logo {
+    font-size: 3em;
+}
+
+.avatarBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 0px 10px;
+}
+.paragraph {
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+}

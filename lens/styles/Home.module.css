@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Syncopate:wght@700&display=swap');
+
 
 .container {
   background: #000;
@@ -83,14 +83,13 @@
 
 .button {
   border: none;
-  border-radius: 20px;
+  border-radius: 15px;
   outline: 0;
   background: black;
-  font-size: inherit;
-  color: #ABFE2C;
-  padding: 10px 30px;
+  color: #fff;
+  padding: 20px 30px;
   font-family: inherit;
-  font-size: 30px;
+  font-size: 12px;
   cursor: pointer;
   transition: flip 0.5s;
   margin: 0 5px;
